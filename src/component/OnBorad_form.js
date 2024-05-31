@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logomark from "../Assets/Logomark.png";
 import { form_data } from "../data/form_data";
 
-function inputType(el, handleFormChange, handlepropertychange) {
+function inputType(el, handleFormChange, handlepropertychange, form) {
   switch (el.type) {
     case "select":
       return (
@@ -32,7 +32,7 @@ function inputType(el, handleFormChange, handlepropertychange) {
             {el.option.map((value, index) => {
               return (
                 <li className="list-group-item border rounded" onClick={()=>handlepropertychange(el.name, value)}>
-                  <span className="border rounded px-2 py-1 me-2">{index}</span>
+                  <span className={form.campaign == value? "border rounded px-2 py-1 me-2 border-primary" : "border rounded px-2 py-1 me-2"}>{index}</span>
                   {value}
                 </li>
               );
@@ -117,7 +117,7 @@ export default function OnBorad_form() {
           overflowY: "auto",
         }}
       >
-        {form_data.map((el) => inputType(el, handleFormChange, handlepropertychange))}
+        {form_data.map((el) => inputType(el, handleFormChange, handlepropertychange, form))}
       </div>
       {/* input */}
       {/* <div className="border text-start" style={{ width: "50%", margin: "auto" }}>
