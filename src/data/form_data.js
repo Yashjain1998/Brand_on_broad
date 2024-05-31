@@ -2,18 +2,26 @@ export const form_data = [
   {
     text: "Welcome to TruAD! We are excited to work with you. Please provide your email address so we can get started.",
     type: "input",
+    placeholder:"name@example.com",
+    name:"email"
   },
   {
     text: "What is the name of your organization?",
     type: "input",
+    placeholder:"Type your answer here...",
+    name:"brand name"
   },
   {
     text: "Can you provide a brief description of your organization?",
     type: "input",
+    placeholder:"Type your answer here...",
+    name:"description"
   },
   {
     text: "Which industry does your organization belong to?",
     type: "select",
+    name: "industry",
+    placeholder:"Type or select an option",
     option: [
       "Healthcare",
       "Retail",
@@ -27,10 +35,14 @@ export const form_data = [
   {
     text: "What is your target audience?",
     type: "input",
+    name:"audience",
+    placeholder:"Type your answer here...",
   },
   {
     text: "Which countries do you operate in?",
     type: "select",
+    placeholder:"Type or select an option",
+    name:"country",
     option: [
       "United States",
       "Canada",
@@ -52,10 +64,14 @@ export const form_data = [
   {
     text: "What is your advertising budget for the next quarter?",
     type: "input",
+    placeholder:"Type your answer here...",
+    name:"quarter",
   },
   {
     text: "What is your main objective for this advertising campaign?",
     type: "checkbox",
+    name:"campaign",
+    placeholder:"Type or select an option",
     option: [
       "Increase brand awareness",
       "Drive sales",
@@ -67,6 +83,8 @@ export const form_data = [
   {
     text: "Which social media platforms do you currently use for advertising?",
     type: "select",
+    placeholder:"Type or select an option",
+    name:"social media",
     option: [
       "Facebook",
       "Instagram",
@@ -85,13 +103,14 @@ export const form_data = [
   {
     text: "Do you have any specific requirements or requests for this advertising campaign?",
     type: "input",
+    name:"advertising campaign",
+    placeholder:"Type your answer here...",
   },
   {
     text: "Is there anything else you would like us to know before we begin working together?",
     type: "input",
+    name:"information",
+    placeholder:"Type your answer here...",
   },
-  {
-    text: "Would you like to include video advertising in your campaign?",
-    type: "input",
-  },
+
 ];
