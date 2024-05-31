@@ -1,0 +1,75 @@
+.homepage_container{
+    height: 96vh;
+}
+
+.homepage_container .homapage_logo{
+    margin: auto;
+    width: 200px;
+    text-align: center;
+    padding-block: 1.4rem;
+    margin-block: 2%;
+}
+
+.homepage_container .homapage_logo > img{
+    width: "50%";
+    object-fit: "fill";
+}
+
+.homepage_container .homepage_main{
+    width: 100%;
+    display: flex;
+    padding: 0 10px;
+}
+
+.homepage_container .homepage_main .homepage_card_container{
+    border: 1px solid red;
+    width: 20rem;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_header > p, 
+.homepage_container .homepage_main .homepage_card_container .homepage_card_header > h6{
+    margin: 0;
+}
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_socials{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_socials .homepage_card_social{
+    display: flex;
+    gap: 14px;
+}
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_socials .homepage_card_social > p {
+    padding: 5px;
+    background-color: gray;
+    border-radius: 5rem;
+}
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_desc{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_desc > a{
+    padding: 5px 8px;
+    background-color: gray;
+    border-radius: 5rem;
+    width: max-content;
+}
