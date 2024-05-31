@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logomark from "../Assets/Logomark.png";
 import { form_data } from "../data/form_data";
 
-function inputType(el, handleFormChange) {
+function inputType(el, handleFormChange, handlepropertychange) {
   switch (el.type) {
     case "select":
       return (
@@ -18,9 +18,9 @@ function inputType(el, handleFormChange) {
               return <option value={value}>{value}</option>;
             })}
           </select>
-          <button className="btn btn-primary px-3" type="button">
+          {/* <button className="btn btn-primary px-3" type="button">
             Ok
-          </button>
+          </button> */}
         </div>
       );
 
@@ -31,7 +31,7 @@ function inputType(el, handleFormChange) {
           <ul className="list-group border-0 gap-3">
             {el.option.map((value, index) => {
               return (
-                <li className="list-group-item border rounded">
+                <li className="list-group-item border rounded" onClick={()=>handlepropertychange(el.name, value)}>
                   <span className="border rounded px-2 py-1 me-2">{index}</span>
                   {value}
                 </li>
@@ -46,10 +46,10 @@ function inputType(el, handleFormChange) {
             <div className="border text-start mb-5 p-2" style={{ width: "50%", margin: "auto" }}>
             <p className="text-break fs-4">{el.text}</p>
             <div className="d-grid gap-2 col-2">
-              <button className="btn btn-primary" type="button">
+              <button className="btn btn-primary" type="button" onClick={()=>handlepropertychange(el.name, true)}>
                 Yes
               </button>
-              <button className="btn btn-primary" type="button">
+              <button className="btn btn-primary" type="button" onClick={()=>handlepropertychange(el.name, false)}>
                 No
               </button>
             </div>
@@ -67,9 +67,9 @@ function inputType(el, handleFormChange) {
             aria-label="default input example"
             onChange={(e) => handleFormChange(e)}
           />
-          <button className="btn btn-primary px-3" type="button">
+          {/* <button className="btn btn-primary px-3" type="button">
             Ok
-          </button>
+          </button> */}
         </div>
       );
   }
@@ -80,6 +80,9 @@ export default function OnBorad_form() {
 
   const handleFormChange = (e) => {
     setForm((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
+  const handlepropertychange=(key, value)=>{
+    setForm((prev) => ({...prev, [key]: value}))
   }
   return (
     <div
@@ -114,7 +117,7 @@ export default function OnBorad_form() {
           overflowY: "auto",
         }}
       >
-        {form_data.map((el) => inputType(el, handleFormChange))}
+        {form_data.map((el) => inputType(el, handleFormChange, handlepropertychange))}
       </div>
       {/* input */}
       {/* <div className="border text-start" style={{ width: "50%", margin: "auto" }}>

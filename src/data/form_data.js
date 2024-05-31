@@ -99,6 +99,7 @@ export const form_data = [
   {
     text: "Would you like to include video advertising in your campaign?",
     type: "Boolean",
+    name:"video_advertising",
   },
   {
     text: "Do you have any specific requirements or requests for this advertising campaign?",
