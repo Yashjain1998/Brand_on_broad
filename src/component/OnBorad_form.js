@@ -89,9 +89,9 @@ export default function OnBorad_form() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:4001", {
+      const response = await fetch("http://localhost:4001/brand", {
         method: "POST",
-        body: JSON.stringify(form),
+        body: JSON.stringify({form}),
         headers: {
           'Content-Type' : "application/json"
         }
