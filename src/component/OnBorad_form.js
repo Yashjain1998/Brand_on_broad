@@ -38,21 +38,8 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
           <ul className="list-group border-0 gap-3">
             {el.option.map((value, index) => {
               return (
-                <li
-                  className={`list-group-item border rounded ${
-                    form.campaign === value ? "border-primary" : ""
-                  }`}
-                  onClick={() => handlepropertychange(el.name, value)}
-                >
-                  <span
-                    className={
-                      form.campaign === value
-                        ? "border rounded px-2 py-1 me-2 bg-primary"
-                        : "border rounded px-2 py-1 me-2"
-                    }
-                  >
-                    {index}
-                  </span>
+                <li className={`list-group-item border rounded ${form.campaign === value?"border-primary":""}`} onClick={()=>handlepropertychange(el.name, value)}>
+                  <span className={form.campaign === value? "border rounded px-2 py-1 me-2 bg-primary" : "border rounded px-2 py-1 me-2"}>{index}</span>
                   {value}
                 </li>
               );
@@ -113,11 +100,11 @@ export default function OnBorad_form() {
   const [form, setForm] = useState({});
 
   const handleFormChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-  const handlepropertychange = (key, value) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
-  };
+    setForm((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
+  const handlepropertychange=(key, value)=>{
+    setForm((prev) => ({...prev, [key]: value}))
+  }
   return (
     <div
       style={{
@@ -188,11 +175,7 @@ export default function OnBorad_form() {
             />
           </svg>
         </button>
-        <button
-          className="btn btn-primary"
-          type="button"
-          onClick={(e) => console.log(form)}
-        >
+        <button className="btn btn-primary" type="button" onClick={(e) => console.log(form)}>
           Truad form
         </button>
       </div>
