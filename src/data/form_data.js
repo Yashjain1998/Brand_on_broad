@@ -9,7 +9,7 @@ export const form_data = [
     text: "What is the name of your organization?",
     type: "input",
     placeholder:"Type your answer here...",
-    name:"brand name"
+    name:"brand_name"
   },
   {
     text: "Can you provide a brief description of your organization?",
@@ -84,7 +84,7 @@ export const form_data = [
     text: "Which social media platforms do you currently use for advertising?",
     type: "select",
     placeholder:"Type or select an option",
-    name:"social media",
+    name:"social_media",
     option: [
       "Facebook",
       "Instagram",
@@ -103,7 +103,7 @@ export const form_data = [
   {
     text: "Do you have any specific requirements or requests for this advertising campaign?",
     type: "input",
-    name:"advertising campaign",
+    name:"advertising_campaign",
     placeholder:"Type your answer here...",
   },
   {

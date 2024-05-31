@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Logomark from "../Assets/Logomark.png";
 import { form_data } from "../data/form_data";
 
-function inputType(el) {
+function inputType(el, handleFormChange) {
   switch (el.type) {
     case "select":
       return (
@@ -65,6 +65,7 @@ function inputType(el) {
             placeholder={el.placeholder}
             name={el.name}
             aria-label="default input example"
+            onChange={(e) => handleFormChange(e)}
           />
           <button className="btn btn-primary px-3" type="button">
             Ok
@@ -75,6 +76,11 @@ function inputType(el) {
 }
 
 export default function OnBorad_form() {
+  const [form, setForm] = useState({})
+
+  const handleFormChange = (e) => {
+    setForm((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
   return (
     <div
       style={{
@@ -108,7 +114,7 @@ export default function OnBorad_form() {
           overflowY: "auto",
         }}
       >
-        {form_data.map((el) => inputType(el))}
+        {form_data.map((el) => inputType(el, handleFormChange))}
       </div>
       {/* input */}
       {/* <div className="border text-start" style={{ width: "50%", margin: "auto" }}>
@@ -188,7 +194,7 @@ export default function OnBorad_form() {
         <button className="btn btn-primary" type="button">
           /
         </button>
-        <button className="btn btn-primary" type="button">
+        <button className="btn btn-primary" type="button" onClick={(e) => console.log(form)}>
           Truad form
         </button>
       </div>
