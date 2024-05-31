@@ -31,8 +31,8 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
           <ul className="list-group border-0 gap-3">
             {el.option.map((value, index) => {
               return (
-                <li className="list-group-item border rounded" onClick={()=>handlepropertychange(el.name, value)}>
-                  <span className={form.campaign == value? "border rounded px-2 py-1 me-2 border-primary" : "border rounded px-2 py-1 me-2"}>{index}</span>
+                <li className={`list-group-item border rounded ${form.campaign === value?"border-primary":""}`} onClick={()=>handlepropertychange(el.name, value)}>
+                  <span className={form.campaign === value? "border rounded px-2 py-1 me-2 bg-primary" : "border rounded px-2 py-1 me-2"}>{index}</span>
                   {value}
                 </li>
               );
@@ -119,70 +119,6 @@ export default function OnBorad_form() {
       >
         {form_data.map((el) => inputType(el, handleFormChange, handlepropertychange, form))}
       </div>
-      {/* input */}
-      {/* <div className="border text-start" style={{ width: "50%", margin: "auto" }}>
-        <p className="text-break fs-4">loghakjfksjsadobjg</p>
-        <input className="form-control mb-3" type="text" placeholder="Default input" aria-label="default input example"/>
-        <button className="btn btn-primary px-3" type="button">
-          Ok
-        </button>
-      </div> */}
-
-      {/* select */}
-      {/* <div className="text-start" style={{ width: "50%", margin: "auto" }}>
-        <p>loghakjfksjsadobjg</p>
-        <select
-          className="form-select form-select-lg mb-3"
-          aria-label=".form-select-lg example"
-        >
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-        <button className="btn btn-primary px-3" type="button">
-          Ok
-        </button>
-      </div> */}
-
-      {/* checkbox */}
-      {/* <div className="text-start" style={{ width: "50%", margin: "auto" }}>
-        <p>gfyggkjehrqkwjgehkjnhdh</p>
-        <ul className="list-group border-0 gap-3">
-          <li className="list-group-item border rounded">
-            <span className="border rounded px-2 py-1 me-2">A</span>
-            First checkbox
-          </li>
-          <li className="list-group-item border rounded">
-          <span className="border rounded px-2 py-1 me-2">A</span>
-            Second checkbox
-          </li>
-          <li className="list-group-item border rounded">
-          <span className="border rounded px-2 py-1 me-2">A</span>
-            Third checkbox
-          </li>
-          <li className="list-group-item border rounded">
-          <span className="border rounded px-2 py-1 me-2">A</span>
-            Fourth checkbox
-          </li>
-          <li className="list-group-item border rounded">
-          <span className="border rounded px-2 py-1 me-2">A</span>
-            Fifth checkbox
-          </li>
-        </ul>
-      </div> */}
-      {/* true and false */}
-      {/* <div className="border text-start" style={{ width: "50%", margin: "auto" }}>
-        <p>gfyggkjehrqkwjgehkjnhdh</p>
-        <div className="d-grid gap-2 col-2">
-          <button className="btn btn-primary" type="button">
-            Yes
-          </button>
-          <button className="btn btn-primary" type="button">
-            No
-          </button>
-        </div>
-      </div> */}
       <div
         className="d-grid gap-2 d-md-flex justify-content-md-end"
         style={{
