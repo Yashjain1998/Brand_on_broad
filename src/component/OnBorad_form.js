@@ -32,7 +32,7 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
             {el.option.map((value, index) => {
               return (
                 <li className="list-group-item border rounded" onClick={()=>handlepropertychange(el.name, value)}>
-                  <span className={form.campaign == value? "border rounded px-2 py-1 me-2 border-primary" : "border rounded px-2 py-1 me-2"}>{index}</span>
+                  <span className={form.campaign === value? "border rounded px-2 py-1 me-2 border-primary" : "border rounded px-2 py-1 me-2"}>{index}</span>
                   {value}
                 </li>
               );
@@ -84,6 +84,24 @@ export default function OnBorad_form() {
   const handlepropertychange=(key, value)=>{
     setForm((prev) => ({...prev, [key]: value}))
   }
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("http://localhost:4001", {
+        method: "POST",
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type' : "application/json"
+        }
+      })
+
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }  
+  }
+
   return (
     <div
       style={{
@@ -197,7 +215,7 @@ export default function OnBorad_form() {
         <button className="btn btn-primary" type="button">
           /
         </button>
-        <button className="btn btn-primary" type="button" onClick={(e) => console.log(form)}>
+        <button className="btn btn-primary" type="button" onClick={handleSubmit}>
           Truad form
         </button>
       </div>
