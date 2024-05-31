@@ -34,7 +34,7 @@ const Homepage = () => {
       </div>
       <div className="homepage_main">
         {brands && brands.map((brand) => (
-            <BrandCard key={brand._id}/>
+            <BrandCard key={brand._id} brand={brand}/>
         ))}
       </div>
     </div>

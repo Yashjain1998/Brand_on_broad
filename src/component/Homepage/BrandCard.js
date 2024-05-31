@@ -1,22 +1,22 @@
 import React from 'react'
 
-const BrandCard = ({brand_name, email, country, social, description}) => {
+const BrandCard = ({brand}) => {
+    const {brand_name, email, country, social_media, description, industry} = brand
   return (
     <div className="homepage_card_container">
             <div className="homepage_card_header">
-                <h6>Netflix</h6>
-                <p>netflix.com</p>
+                <h6>{brand_name}</h6>
+                <p>{email}</p>
             </div>
             <div className="homepage_card_socials">
-                <a>India</a>
+                <a>{country}</a>
                 <div className="homepage_card_social">
-                    <p>LinkedIn</p>
-                    <p>Facebook</p>
+                    <p>{social_media}</p>
                 </div>
             </div>
             <div className="homepage_card_desc">
-                <a>IT</a>
-                <p>Netflix is a subscription-based streaming service that allows our members to watch TV shows and movies on an internet-connected device. </p>
+                <a>{industry}</a>
+                <p>{description}</p>
             </div>
         </div>
   )

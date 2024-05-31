@@ -16,6 +16,7 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
             aria-label=".form-select-lg example"
             name={el.name}
             defaultValue={el.placeholder}
+            onChange={(e) => handleFormChange(e)}
           >
             <option disabled>{el.placeholder}</option>
             {el.option.map((value) => {
@@ -193,7 +194,7 @@ export default function OnBorad_form() {
             />
           </svg>
         </button>
-        <button className="btn btn-primary" type="button" onClick={(e) => console.log(form)}>
+        <button className="btn btn-primary" type="button" onClick={handleSubmit}>
           Truad form
         </button>
       </div>
