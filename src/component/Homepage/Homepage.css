@@ -74,3 +74,7 @@
     border-radius: 5rem;
     width: max-content;
 }
+
+.homepage_container .homepage_main .homepage_card_container .homepage_card_desc > p{
+    margin: 0;
+}

@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Form from "./component/OnBorad_form"
 import SignIn from './component/SignIn/SignIn';
 import Homepage from './component/Homepage/Homepage';
+import BrandPage from './component/BrandPage/BrandPage';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,9 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Form />,
+  },{
+    path: "/brand/:id",
+    element: <BrandPage />,
   }
 ])
 function App() {
