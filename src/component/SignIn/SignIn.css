@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #23303B;
+    /* background-color: #23303B; */
 }
 
 .login-left .login-logo{
@@ -26,7 +26,7 @@
 
 .login-right{
     width: 50%;
-    background-color: #23303B;
+    /* background-color: #23303B; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +55,7 @@
 }
 
 .login-right .login-info > p{
-    color:  white
+    color:  #A3AED0
 }
 
 .login-right .login-form{
@@ -70,7 +70,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    color: white;
+    color: #656261;
 }
 
 .login-right .login-form form > input[type=email],.login-right .login-form form > input[type=password]{
@@ -80,7 +80,7 @@
     height: 30px;
     margin-bottom: 15px;
     margin-top: 5px;
-    color: white;
+    /* color: white; */
     padding-left: 10px;
     background-image: url('../../Assets/pass-show.png');
   /* background-position: 10px 10px; */
@@ -98,7 +98,7 @@
 }
 
 .login-right .login-form form > input[type=email]::placeholder,.login-right .login-form form > input[type=password]::placeholder{
-    color: white;
+    /* color: white; */
     opacity: 0.5;
 }
 
@@ -128,10 +128,11 @@
     height: 3rem;
     border-radius: 1rem;
     background-color: #2FBDA3;
-    color: white;
+    color: #0F0F0F;
     margin-bottom: 1rem;
     border-color: transparent;
     transition: all 0.5s ease;
+    font-weight: bold;
 }
 
 .login-right .login-form form > button:hover{
@@ -143,7 +144,7 @@
 }
 
 .login-right .login-form form .login-form-end > span > a{
-    color: #2FBDA3;
+    color: #456EFE;
     cursor: pointer;
     text-decoration: none;
 }
