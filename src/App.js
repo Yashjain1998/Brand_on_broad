@@ -6,6 +6,7 @@ import SignUp from './component/SignUp/SignUp';
 import Homepage from './component/Homepage/Homepage';
 import BrandPage from './component/BrandPage/BrandPage';
 import DialogBox from "./component/Homepage/DialogBox";
+import VerifyOTP from './component/VerifyOTP/VerifyOTP';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/verifyOTP",
+    element: <VerifyOTP />,
   },
   {
     path: "/homepage",
