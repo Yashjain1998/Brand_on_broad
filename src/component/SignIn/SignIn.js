@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../Assets/TruAd_White _Logo.png";
 import pass_show from "../../Assets/pass-show.png";
 import pass_hide from "../../Assets/pass-hide.png";
 import "./SignIn.css";
-// import { useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router";
 import CircularProgress from "@mui/material/CircularProgress";
 
 
 const SignIn = () => {
-  // const [cookies, setCookie] = useCookies(["user", "userdata"]);
+  const [cookie, setCookie] = useCookies(["user", "userdata"]);
   const [showPassword, setShowPassword] = useState(false);
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
@@ -52,8 +52,8 @@ const SignIn = () => {
 
       if (response.status === 200) {
         const data = await response.json();
-        // setCookie("user", data.token);
-        // setCookie("userdata", data);
+        setCookie("user", data.token);
+        setCookie("userdata", data);
         setloader(false);
         console.log("logged in", data);
         navigate("/homepage");
@@ -67,6 +67,13 @@ const SignIn = () => {
   const handleForget = () => {
     navigate('/verifyOTP')
   }
+
+  useEffect(() => {
+    if(cookie.user.length > 0){
+      navigate("/homepage")
+    }
+  }, [cookie.user])
+  
 
   return (
     <div className="login-container">

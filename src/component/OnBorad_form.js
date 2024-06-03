@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logomark from "../Assets/Logomark.png";
 import { form_data } from "../data/form_data";
+import { useNavigate } from "react-router";
+import { useCookies } from "react-cookie";
 
 function inputType(el, handleFormChange, handlepropertychange, form) {
   switch (el.type) {
@@ -39,8 +41,21 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
           <ul className="list-group border-0 gap-3">
             {el.option.map((value, index) => {
               return (
-                <li className={`list-group-item border rounded ${form.campaign === value?"border-primary":""}`} onClick={()=>handlepropertychange(el.name, value)}>
-                  <span className={form.campaign === value? "border rounded px-2 py-1 me-2 bg-primary" : "border rounded px-2 py-1 me-2"}>{index}</span>
+                <li
+                  className={`list-group-item border rounded ${
+                    form.campaign === value ? "border-primary" : ""
+                  }`}
+                  onClick={() => handlepropertychange(el.name, value)}
+                >
+                  <span
+                    className={
+                      form.campaign === value
+                        ? "border rounded px-2 py-1 me-2 bg-primary"
+                        : "border rounded px-2 py-1 me-2"
+                    }
+                  >
+                    {index}
+                  </span>
                   {value}
                 </li>
               );
@@ -98,31 +113,50 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
 }
 
 export default function OnBorad_form() {
+  const [cookie, setCookie] = useCookies(['user']) ;
   const [form, setForm] = useState({});
+  const navigate = useNavigate();
 
   const handleFormChange = (e) => {
-    setForm((prev) => ({...prev, [e.target.name]: e.target.value}))
-  }
-  const handlepropertychange=(key, value)=>{
-    setForm((prev) => ({...prev, [key]: value}))
-  }
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handlepropertychange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
 
   const handleSubmit = async () => {
     try {
       const response = await fetch("http://localhost:4001/brand", {
         method: "POST",
-        body: JSON.stringify({form}),
+        body: JSON.stringify({ form }),
         headers: {
-          'Content-Type' : "application/json"
-        }
-      })
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
-      const data = await response.json()
-      console.log(data)
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'output.xlsx';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      navigate("/homepage");
     } catch (error) {
-      console.log(error)
-    }  
-  }
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if(!cookie.user){
+      navigate("/")
+    }
+  }, []);
 
   return (
     <div
@@ -161,9 +195,7 @@ export default function OnBorad_form() {
           inputType(el, handleFormChange, handlepropertychange, form)
         )}
       </div>
-      <div
-        className="d-grid gap-2 d-md-flex justify-content-md-end pe-4"
-      >
+      <div className="d-grid gap-2 d-md-flex justify-content-md-end pe-4">
         {/* <button className="btn btn-primary" type="button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +226,11 @@ export default function OnBorad_form() {
             />
           </svg>
         </button> */}
-        <button className="btn btn-primary" type="button" onClick={handleSubmit}>
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={handleSubmit}
+        >
           Truad form
         </button>
       </div>
