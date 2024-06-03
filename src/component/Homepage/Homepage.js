@@ -3,6 +3,7 @@ import Logomark from "../../Assets/Logomark.png";
 import "./Homepage.css";
 import BrandCard from "./BrandCard";
 
+
 const Homepage = () => {
     const [brands, setBrands] = useState([])
 
@@ -32,7 +33,7 @@ const Homepage = () => {
           }}
         />
       </div>
-      <div className="homepage_main">
+      <div className="homepage_main" >
         {brands && brands.map((brand) => (
             <BrandCard key={brand._id} brand={brand}/>
         ))}
