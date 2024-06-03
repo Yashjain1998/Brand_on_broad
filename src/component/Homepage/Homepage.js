@@ -6,7 +6,6 @@ import BrandCard from "./BrandCard";
 
 const Homepage = () => {
     const [brands, setBrands] = useState([])
-
     const fetchBrands = async() => {
         try {
             const response = await fetch("http://localhost:4001/brand");
