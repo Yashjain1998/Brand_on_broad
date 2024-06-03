@@ -33,6 +33,9 @@ const Homepage = () => {
           }}
         />
       </div>
+      <div className="homapage_nav">
+        <h5>Brand On Broad</h5>
+        <button>Add Brand</button></div>
       <div className="homepage_main" >
         {brands && brands.map((brand) => (
             <BrandCard key={brand._id} brand={brand}/>

@@ -15,6 +15,28 @@
     object-fit: "fill";
 }
 
+.homepage_container .homapage_nav{
+        display: flex;
+        justify-content: space-between; /* to push the button to the right */
+        align-items: center; /* to vertically center the button */
+        border-bottom: 1px solid #dee2e6;
+        margin-inline: 2.5rem;
+        padding-bottom: 10px;
+    
+}
+.homepage_container .homapage_nav h5{
+    /* margin-left: 2rem; */
+}
+.homepage_container .homapage_nav button {
+    display: block;
+    background-color: #58d89c; /* Blue color as an example */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-right: 2rem; */
+}
 .homepage_container .homepage_main{
     width: 100%;
     display: flex;
