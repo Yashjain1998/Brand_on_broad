@@ -56,7 +56,7 @@ const SignIn = () => {
         // setCookie("userdata", data);
         setloader(false);
         console.log("logged in", data);
-        navigate("/dashboard");
+        navigate("/homepage");
       }
     } catch (error) {
       setloader(false);
@@ -124,7 +124,7 @@ const SignIn = () => {
                 
               ) : (
                 <button type="button" 
-                // onClick={handleSignIn}
+                onClick={handleSignIn}
                 >Sign In</button>
                 
               )}
