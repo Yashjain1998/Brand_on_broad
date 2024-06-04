@@ -79,34 +79,34 @@ const formdata = [
       },
     ],
   },
-  {
-    section: "Sign documents from truad",
-    input: [
-      {
-        label: "Name",
-        type: "text",
-        placeholder: "POC Name",
-        name: "POC_Name",
-      },
-      {
-        label: "Designation",
-        type: "text",
-        placeholder: "HR",
-        name: "POC_Designation",
-      },
-      {
-        label: "Email ID",
-        type: "email",
-        placeholder: "abc@gmail.com",
-        name: "POC_Email",
-      },
-      {
-        label: "phone Number",
-        type: "number",
-        placeholder: "1234567890",
-        name: "POC_Number",
-      },
-    ],
-  },
+  //   {
+  //     section: "Sign documents from truad",
+  //     input: [
+  //       {
+  //         label: "Name",
+  //         type: "text",
+  //         placeholder: "POC Name",
+  //         name: "POC_Name",
+  //       },
+  //       {
+  //         label: "Designation",
+  //         type: "text",
+  //         placeholder: "HR",
+  //         name: "POC_Designation",
+  //       },
+  //       {
+  //         label: "Email ID",
+  //         type: "email",
+  //         placeholder: "abc@gmail.com",
+  //         name: "POC_Email",
+  //       },
+  //       {
+  //         label: "phone Number",
+  //         type: "number",
+  //         placeholder: "1234567890",
+  //         name: "POC_Number",
+  //       },
+  //     ],
+  //   },
 ];
 export default formdata;

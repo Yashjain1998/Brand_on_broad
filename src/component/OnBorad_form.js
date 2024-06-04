@@ -120,8 +120,21 @@ function inputSwitch(el, handlepropertychange) {
           class="form-control"
           id="FormControlInput"
           rows="3"
-          onChange={(e)=>handlepropertychange(e.target.name, e.target.value)}
+          name={el.name}
+          placeholder={el.placeholder}
+          onChange={(e) => handlepropertychange(e.target.name, e.target.value)}
         ></textarea>
+      );
+    case "file":
+      return (
+        <input
+          type={el.type}
+          class="form-control"
+          id="FormControlInput"
+          placeholder={el.placeholder}
+          name={el.name}
+          onChange={(e) => handlepropertychange(e.target.name, e.target.files[0])}
+        />
       );
     default:
       return (
@@ -131,7 +144,7 @@ function inputSwitch(el, handlepropertychange) {
           id="FormControlInput"
           placeholder={el.placeholder}
           name={el.name}
-          onChange={(e)=>handlepropertychange(e.target.name, e.target.value)}
+          onChange={(e) => handlepropertychange(e.target.name, e.target.value)}
         />
       );
   }
@@ -139,11 +152,9 @@ function inputSwitch(el, handlepropertychange) {
 
 function formSection(object, handlepropertychange) {
   return (
-    <div className="row m-auto mt-5" style={{width: "60%" }}>
+    <div className="row m-auto mt-5" style={{ width: "60%" }}>
       <div className="col-6 h4">{object.section}</div>
-      <div
-        className="col-6"
-      >
+      <div className="col-6">
         {object.input.map((el) => {
           return (
             <div className="mb-3 text-start p-2">
@@ -159,7 +170,7 @@ function formSection(object, handlepropertychange) {
   );
 }
 export default function OnBorad_form() {
-  const [cookie, setCookie] = useCookies(['user']) ;
+  const [cookie, setCookie] = useCookies(["user"]);
   const [form, setForm] = useState({});
   const navigate = useNavigate();
 
@@ -196,14 +207,14 @@ export default function OnBorad_form() {
     // } catch (error) {
     //   console.log(error);
     // }
-    console.log(form)
+    console.log(form);
   };
 
-  useEffect(() => {
-    if(!cookie.user){
-      navigate("/")
-    }
-  }, []);
+  // useEffect(() => {
+  //   if(!cookie.user){
+  //     navigate("/")
+  //   }
+  // }, []);
 
   return (
     <div
