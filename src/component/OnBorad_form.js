@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Logomark from "../Assets/Logomark.png";
-import { form_data } from "../data/form_data";
+import form_data from "../data/newformdata";
 import { useNavigate } from "react-router";
 import { useCookies } from "react-cookie";
 
@@ -112,6 +112,52 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
   }
 }
 
+function inputSwitch(el, handlepropertychange) {
+  switch (el.type) {
+    case "textArea":
+      return (
+        <textarea
+          class="form-control"
+          id="FormControlInput"
+          rows="3"
+          onChange={(e)=>handlepropertychange(e.target.name, e.target.value)}
+        ></textarea>
+      );
+    default:
+      return (
+        <input
+          type={el.type}
+          class="form-control"
+          id="FormControlInput"
+          placeholder={el.placeholder}
+          name={el.name}
+          onChange={(e)=>handlepropertychange(e.target.name, e.target.value)}
+        />
+      );
+  }
+}
+
+function formSection(object, handlepropertychange) {
+  return (
+    <div className="row m-auto mt-5" style={{width: "60%" }}>
+      <div className="col-6 h4">{object.section}</div>
+      <div
+        className="col-6"
+      >
+        {object.input.map((el) => {
+          return (
+            <div className="mb-3 text-start p-2">
+              <label for="ControlInput" class="form-label">
+                {el.label}
+              </label>
+              {inputSwitch(el, handlepropertychange)}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 export default function OnBorad_form() {
   const [cookie, setCookie] = useCookies(['user']) ;
   const [form, setForm] = useState({});
@@ -125,31 +171,32 @@ export default function OnBorad_form() {
   };
 
   const handleSubmit = async () => {
-    try {
-      const response = await fetch("http://localhost:4001/brand", {
-        method: "POST",
-        body: JSON.stringify({ form }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+    // try {
+    //   const response = await fetch("http://localhost:4001/brand", {
+    //     method: "POST",
+    //     body: JSON.stringify({ form }),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
+    //   if (!response.ok) {
+    //     throw new Error('Network response was not ok');
+    //   }
 
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'output.xlsx';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-      navigate("/homepage");
-    } catch (error) {
-      console.log(error);
-    }
+    //   const blob = await response.blob();
+    //   const url = window.URL.createObjectURL(blob);
+    //   const a = document.createElement('a');
+    //   a.href = url;
+    //   a.download = 'output.xlsx';
+    //   document.body.appendChild(a);
+    //   a.click();
+    //   window.URL.revokeObjectURL(url);
+    //   document.body.removeChild(a);
+    //   navigate("/homepage");
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    console.log(form)
   };
 
   useEffect(() => {
@@ -192,7 +239,8 @@ export default function OnBorad_form() {
         }}
       >
         {form_data.map((el) =>
-          inputType(el, handleFormChange, handlepropertychange, form)
+          // inputType(el, handleFormChange, handlepropertychange, form)
+          formSection(el, handlepropertychange)
         )}
       </div>
       <div className="d-grid gap-2 d-md-flex justify-content-md-end pe-4">
@@ -227,9 +275,13 @@ export default function OnBorad_form() {
           </svg>
         </button> */}
         <button
-          className="btn btn-primary"
+          className="btn"
           type="button"
           onClick={handleSubmit}
+          style={{
+            background: "#2FBDA3",
+            color: "white",
+          }}
         >
           Truad form
         </button>

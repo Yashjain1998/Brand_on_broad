@@ -6,8 +6,6 @@ import "./SignIn.css";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router";
 import CircularProgress from "@mui/material/CircularProgress";
-
-
 const SignIn = () => {
   const [cookie, setCookie] = useCookies(["user", "userdata"]);
   const [showPassword, setShowPassword] = useState(false);
