@@ -69,7 +69,7 @@ const SignIn = () => {
   }
 
   useEffect(() => {
-    if(cookie.user.length > 0){
+    if(cookie?.user?.length > 0){
       navigate("/homepage")
     }
   }, [cookie.user])
