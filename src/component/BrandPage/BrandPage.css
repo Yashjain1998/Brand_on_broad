@@ -1,0 +1,65 @@
+.brand_container{
+    width: 100%;
+    height: 98.5vh;
+}
+
+.brand_container .brand_container_header{
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.brand_container .brand_container_header > p{
+    color: white;
+    margin: 0;
+    font-size: 120px;
+    letter-spacing: 8px;
+}
+
+.brand_container .brand_main{
+    height: 75%;
+    background-color: #909090;
+    padding: 10px;
+}
+
+.brand_container .brand_main .brand_icons{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand_container .brand_main .brand_icons .brand_icon{
+    padding: 6px 11px;
+    width: max-content;
+    background-color: blue;
+    color: white;
+    border-radius: 45%;
+}
+
+.brand_container .brand_main .brand_icons .brand_icon > p{
+    margin: 0;
+}
+
+.brand_container .brand_main .brand_description{
+    margin-top: 10px ;
+    border: 1px solid black;
+    padding: 10px 5px;
+}
+
+.brand_container .brand_main .brand_icons .brand_info{
+    display: flex;
+    gap: 5px;
+    color: #660000;
+    border-right: 1px solid #660000;
+    padding: 0 6px 0 0;
+}
+
+.brand_container .brand_main .brand_icons .brand_info > p{
+    margin: 0;
+}
+
+.brand_container .brand_main .brand_description > p{
+    margin: 0;
+}

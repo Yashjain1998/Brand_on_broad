@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logomark from "../Assets/Logomark.png";
 import form_data from "../data/newformdata";
 import { useNavigate } from "react-router";
+import { useCookies } from "react-cookie";
 
 function inputType(el, handleFormChange, handlepropertychange, form) {
   switch (el.type) {
@@ -156,6 +157,7 @@ function formSection(object) {
   );
 }
 export default function OnBorad_form() {
+  const [cookie, setCookie] = useCookies(['user']) ;
   const [form, setForm] = useState({});
   const navigate = useNavigate();
 
@@ -175,13 +177,30 @@ export default function OnBorad_form() {
           "Content-Type": "application/json",
         },
       });
-      const data = await response.json();
-      console.log(data);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'output.xlsx';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
       navigate("/homepage");
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if(!cookie.user){
+      navigate("/")
+    }
+  }, []);
 
   return (
     <div

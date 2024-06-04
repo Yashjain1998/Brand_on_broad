@@ -29,7 +29,7 @@ const SignUp = () => {
     if (valid) {
       try {
         const response = await fetch(
-          "https://truad-dashboard-backend.onrender.com/api/register",
+          "http://localhost:4001/register",
           {
             method: "POST",
             body: JSON.stringify(user),
@@ -90,7 +90,7 @@ const SignUp = () => {
                 onChange={(e) => handleChange(e)}
               />
 
-              <label>Password:</label>
+              {/* <label>Password:</label>
               <input
                 type={showPassword ? "email" : "password"}
                 placeholder="Min. 8 characters"
@@ -102,7 +102,7 @@ const SignUp = () => {
                 src={showPassword ? pass_show : pass_hide}
                 onClick={() => setShowPassword(!showPassword)}
                 alt=""
-              ></img>
+              ></img> */}
               {/* <div className="checkbox">
                 <div
                   style={{ display: "flex", alignItems: "center", gap: "5px" }}

@@ -3,10 +3,12 @@ import Logomark from "../../Assets/Logomark.png";
 import "./Homepage.css";
 import BrandCard from "./BrandCard";
 import { useNavigate } from "react-router";
-import Dialog from "./DialogBox"
+import { useCookies } from "react-cookie";
 
 const Homepage = () => {
   const [brands, setBrands] = useState([]);
+  const [cookie, setCookie] = useCookies(['user']) ;
+
   const navigate = useNavigate();
   const fetchBrands = async () => {
     try {
@@ -18,12 +20,16 @@ const Homepage = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
+    if(cookie.user ){
     fetchBrands();
+    }else{
+      navigate("/")
+    }
   }, []);
 
   return (
-    // <React.Fragment>
     <div className="homepage_container">
       <div className="homapage_logo">
         <img
@@ -44,8 +50,6 @@ const Homepage = () => {
           brands.map((brand) => <BrandCard key={brand._id} brand={brand} />)}
       </div>
     </div>
-    // <Dialog handleClose={handleClose} open={open}/>
-    // </React.Fragment>
   );
 };
 
