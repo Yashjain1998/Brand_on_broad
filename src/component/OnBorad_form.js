@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Logomark from "../Assets/Logomark.png";
-import { form_data } from "../data/form_data";
+import form_data from "../data/newformdata";
 import { useNavigate } from "react-router";
 
 function inputType(el, handleFormChange, handlepropertychange, form) {
@@ -111,6 +111,50 @@ function inputType(el, handleFormChange, handlepropertychange, form) {
   }
 }
 
+function inputSwitch(el) {
+  switch (el.type) {
+    case "textArea":
+      return (
+        <textarea
+          class="form-control"
+          id="FormControlInput"
+          rows="3"
+        ></textarea>
+      );
+    default:
+      return (
+        <input
+          type={el.type}
+          class="form-control"
+          id="FormControlInput"
+          placeholder={el.placeholder}
+          name={el.name}
+        />
+      );
+  }
+}
+
+function formSection(object) {
+  return (
+    <div className="row m-auto mt-5" style={{width: "60%" }}>
+      <div className="col-6 h4">{object.section}</div>
+      <div
+        className="col-6"
+      >
+        {object.input.map((el) => {
+          return (
+            <div className="mb-3 text-start p-2">
+              <label for="ControlInput" class="form-label">
+                {el.label}
+              </label>
+              {inputSwitch(el)}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 export default function OnBorad_form() {
   const [form, setForm] = useState({});
   const navigate = useNavigate();
@@ -173,7 +217,8 @@ export default function OnBorad_form() {
         }}
       >
         {form_data.map((el) =>
-          inputType(el, handleFormChange, handlepropertychange, form)
+          // inputType(el, handleFormChange, handlepropertychange, form)
+          formSection(el)
         )}
       </div>
       <div className="d-grid gap-2 d-md-flex justify-content-md-end pe-4">
@@ -208,9 +253,13 @@ export default function OnBorad_form() {
           </svg>
         </button> */}
         <button
-          className="btn btn-primary"
+          className="btn"
           type="button"
           onClick={handleSubmit}
+          style={{
+            background: "#2FBDA3",
+            color: "white",
+          }}
         >
           Truad form
         </button>
