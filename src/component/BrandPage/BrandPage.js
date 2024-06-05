@@ -40,30 +40,31 @@ const BrandPage = () => {
   return (
     <div className="brand_container">
       {!location?.state?.brand && !brand ? <div></div> : <><div className="brand_container_header">
-        <p>{location?.state?.brand?.brand_name || brand.brand_name}</p>
+        <p>{location?.state?.brand?.companyName || brand.compnayName}</p>
       </div>
       <div className="brand_main">
         <div className="brand_icons">
           <div className="brand_icon">
-            <p>{location?.state?.brand?.country || brand.country}</p>
+            <p>{location?.state?.brand?.companyWebsite || brand.companyWebsite}</p>
           </div>
           <div className="brand_icon">
-            <p>{location?.state?.brand?.industry || brand.industry}</p>
-          </div>
-          <div className="brand_icon">
-            <p>{location?.state?.brand?.social_media || brand.social_media}</p>
+            <p>{location?.state?.brand?.city || brand.city}</p>
           </div>
           <div className="brand_info">
-            <p>Target Audience:</p>
-            <p>{location?.state?.brand?.audience || brand.audience}</p>
+            <p>POC Name:</p>
+            <p>{location?.state?.brand?.POC_Name || brand.POC_Name}</p>
           </div>
           <div className="brand_info">
-            <p>Budget for next Quarter:</p>
-            <p>{location?.state?.brand?.quarter || brand.quarter}</p>
+            <p>POC Desgination:</p>
+            <p>{location?.state?.brand?.POC_Designation || brand.POC_Designation}</p>
           </div>
           <div className="brand_info">
-            <p>Objective:</p>
-            <p>{location?.state?.brand?.campaign || brand.campaign}</p>
+            <p>POC Email:</p>
+            <p>{location?.state?.brand?.POC_Email || brand.POC_Email}</p>
+          </div>
+          <div className="brand_info">
+            <p>POC Number:</p>
+            <p>{location?.state?.brand?.POC_Number || brand.POC_Number}</p>
           </div>
         </div>
         <div className="brand_description">
